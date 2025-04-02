@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Crud App</h1>
+    <input type="text" id="nome" placeholder="Nome" />
+    <input type="text" id="sobrenome" placeholder="Sobrenome" />
+    <input type="email" id="email" placeholder="Email" />
+    <button onclick="adicionarUsuario()">Enviar</button>
+
+    <div class="user-grid" id="user-grid">
+        <!-- Usuários cadastrados aparecem aqui -->
+    </div>
+
+    <script>
+        function adicionarUsuario() {
+            const nome = document.getElementById('nome').value;
+            const sobrenome = document.getElementById('sobrenome').value;
+            const email = document.getElementById('email').value;
+
+            if (!nome || !sobrenome || !email) {
+                alert('Preencha todos os campos!');
+                return;
+            }
+
+            document.getElementById('user-grid').innerHTML += `
+                <div class="user-item">
+                    <p>${nome} ${sobrenome}</p>
+                    <p>${email}</p>
+                    <button onclick="editarUsuario(this)">Editar</button>
+                    <button onclick="deletarUsuario(this)">Deletar</button>
+                </div>
+            `;
+        }
+
+        function editarUsuario(button) {
+            const item = button.parentElement;
+            const [nomeCompleto, email] = item.querySelectorAll('p');
+            const [nome, sobrenome] = nomeCompleto.textContent.split(' ');
+
+            document.getElementById('nome').value = nome;
+            document.getElementById('sobrenome').value = sobrenome;
+            document.getElementById('email').value = email.textContent;
+
+            item.remove();
+        }
+
+        function deletarUsuario(button) {
+            button.parentElement.remove();
+        }
+    </script>
+</body>
+</html>
