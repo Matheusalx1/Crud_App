@@ -14,45 +14,10 @@
     <button onclick="adicionarUsuario()">Enviar</button>
 
     <div class="user-grid" id="user-grid">
-        <!-- Usuários cadastrados aparecem aqui -->
+        
     </div>
 
-    <script>
-        function adicionarUsuario() {
-            const nome = document.getElementById('nome').value;
-            const sobrenome = document.getElementById('sobrenome').value;
-            const email = document.getElementById('email').value;
+    <script src="script.js"></script>
 
-            if (!nome || !sobrenome || !email) {
-                alert('Preencha todos os campos!');
-                return;
-            }
-
-            document.getElementById('user-grid').innerHTML += `
-                <div class="user-item">
-                    <p>${nome} ${sobrenome}</p>
-                    <p>${email}</p>
-                    <button onclick="editarUsuario(this)">Editar</button>
-                    <button onclick="deletarUsuario(this)">Deletar</button>
-                </div>
-            `;
-        }
-
-        function editarUsuario(button) {
-            const item = button.parentElement;
-            const [nomeCompleto, email] = item.querySelectorAll('p');
-            const [nome, sobrenome] = nomeCompleto.textContent.split(' ');
-
-            document.getElementById('nome').value = nome;
-            document.getElementById('sobrenome').value = sobrenome;
-            document.getElementById('email').value = email.textContent;
-
-            item.remove();
-        }
-
-        function deletarUsuario(button) {
-            button.parentElement.remove();
-        }
-    </script>
 </body>
 </html>
