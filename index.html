@@ -3,21 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crud App</title>
+    <title>Base de Usuários</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Crud App</h1>
-    <input type="text" id="nome" placeholder="Nome" />
-    <input type="text" id="sobrenome" placeholder="Sobrenome" />
-    <input type="email" id="email" placeholder="Email" />
-    <button onclick="adicionarUsuario()">Enviar</button>
+    <h1>Base de Usuários</h1>
+    
 
-    <div class="user-grid" id="user-grid">
-        
+    <div class="form-container">
+        <h2>Adicionar Novo Usuário</h2>
+        <label>Nome</label>
+        <input type="text" id="nome" placeholder="Digite o nome">
+        <label>Sobrenome</label>
+        <input type="text" id="sobrenome" placeholder="Digite o sobrenome">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Digite o endereço de email">
+        <button onclick="adicionarUsuario()">✔ Adicionar Usuário</button>
+    </div>
+
+    <div class="user-list-container">
+        <h2>Lista de Usuários</h2>
+        <div class="user-list" id="user-grid"></div>
     </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>
