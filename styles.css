@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
-    background: linear-gradient(to right, #28545a, #033f47);
+    background: linear-gradient(to right, #e0f7fa, #80deea);
     color: #01579b;
 }
 
@@ -34,11 +34,13 @@ button:hover {
     background-color: #0277bd;
 }
 
-.user-grid {
+.user-grid { 
+    color: black;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 10px;
     margin-top: 20px;
+    width: 40%;
 }
 
 .user-item {
@@ -49,12 +51,17 @@ button:hover {
     box-shadow: 0px 0px 5px #0288d1;
 }
 
+.user-item p {
+    margin: 5px 0;
+}
+
 .user-item button {
     background-color: #0288d1;
     color: white;
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
+    margin-top: 10px;
 }
 
 .user-item button:hover {
